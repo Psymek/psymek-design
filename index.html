@@ -34,32 +34,39 @@
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.6;
-    cursor: none;
     overflow-x: hidden;
   }
 
-  /* ---- CURSOR ---- */
-  #cursor-dot {
-    position: fixed; top: 0; left: 0; z-index: 9999;
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.05s;
-  }
-  #cursor-ring {
-    position: fixed; top: 0; left: 0; z-index: 9998;
-    width: 32px; height: 32px;
-    border: 1px solid rgba(200,255,0,0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: transform 0.18s ease, width 0.2s, height 0.2s, border-color 0.2s;
-  }
-  body.cursor-hover #cursor-ring {
-    width: 48px; height: 48px;
-    border-color: var(--accent);
+  /* ---- CURSOR (mouse only) ---- */
+  #cursor-dot, #cursor-ring { display: none; }
+
+  @media (hover: hover) and (pointer: fine) {
+    body { cursor: none; }
+
+    #cursor-dot {
+      display: block;
+      position: fixed; top: 0; left: 0; z-index: 9999;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s;
+    }
+    #cursor-ring {
+      display: block;
+      position: fixed; top: 0; left: 0; z-index: 9998;
+      width: 32px; height: 32px;
+      border: 1px solid rgba(200,255,0,0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.18s ease, width 0.2s, height 0.2s, border-color 0.2s;
+    }
+    body.cursor-hover #cursor-ring {
+      width: 48px; height: 48px;
+      border-color: var(--accent);
+    }
   }
 
   /* ---- NOISE OVERLAY ---- */
@@ -294,8 +301,10 @@
     background: var(--accent);
     transition: width 0.4s ease;
   }
-  .work-item:hover::before { width: 100%; }
-  .work-item:hover { background: var(--surface); }
+  @media (hover: hover) {
+    .work-item:hover::before { width: 100%; }
+    .work-item:hover { background: var(--surface); }
+  }
   .work-num {
     font-family: var(--font-mono);
     font-size: 10px;
@@ -402,7 +411,7 @@
     transition: background 0.3s;
     position: relative;
   }
-  .service-card:hover { background: var(--surface); }
+  @media (hover: hover) { .service-card:hover { background: var(--surface); } }
   .service-icon {
     width: 40px; height: 40px;
     border: 1px solid var(--accent);
@@ -447,7 +456,7 @@
     line-height: 1;
     transition: color 0.3s;
   }
-  .process-step:hover .step-num { color: var(--accent); }
+  @media (hover: hover) { .process-step:hover .step-num { color: var(--accent); } }
   .step-content {}
   .step-title {
     font-family: var(--font-display);
@@ -539,11 +548,12 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    cursor: none;
+    cursor: pointer;
     transition: background 0.2s;
     align-self: flex-start;
   }
-  .form-submit:hover { background: var(--white); }
+  @media (hover: hover) and (pointer: fine) { .form-submit { cursor: none; } }
+  @media (hover: hover) { .form-submit:hover { background: var(--white); } }
 
   /* ---- FOOTER ---- */
   footer {
@@ -931,30 +941,32 @@
 </footer>
 
 <script>
-  // ---- CURSOR ----
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  // ---- CURSOR (mouse/trackpad only) ----
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top = my + 'px';
-  });
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+    });
 
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top = ry + 'px';
-    requestAnimationFrame(animateRing);
+    function animateRing() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button, .work-item, .service-card').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
   }
-  animateRing();
-
-  document.querySelectorAll('a, button, .work-item, .service-card').forEach(el => {
-    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-  });
 
   // ---- SCROLL REVEAL ----
   const observer = new IntersectionObserver(entries => {
