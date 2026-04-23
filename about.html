@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — PSYMEK Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">PSY<span>MEK</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-label">About the Studio</div>
+  <h1 class="page-header-title">Who We Are</h1>
+</div>
+
+<section>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-body">PSYMEK is a <strong>design studio</strong> built on the belief that great work doesn't just look good — it <strong>performs</strong>. We operate at the intersection of brand strategy and craft, delivering work that earns attention and holds it.</p>
+      <p class="about-body">We work with <strong>ambitious brands</strong> at all stages — from early-stage startups defining their identity to established companies reinventing themselves. Every project gets our full focus.</p>
+      <div class="about-highlights">
+        <div class="highlight-item"><span class="highlight-label">Discipline</span><span class="highlight-val">Brand & Digital</span></div>
+        <div class="highlight-item"><span class="highlight-label">Based In</span><span class="highlight-val">Remote / Global</span></div>
+        <div class="highlight-item"><span class="highlight-label">Availability</span><span class="highlight-val">Select Projects</span></div>
+        <div class="highlight-item"><span class="highlight-label">Response Time</span><span class="highlight-val">24–48 Hours</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="about-visual">Photo / Portrait</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-header reveal">
+    <div><div class="section-label">How We Work</div><h2 class="section-title">Process</h2></div>
+  </div>
+  <div class="process-steps">
+    <div class="process-step reveal"><div class="step-num">01</div><div class="step-content"><div class="step-title">Discovery</div><p class="step-desc">We start by understanding your brand, audience, goals, and competitive landscape.</p></div><span class="step-tag">Week 1</span></div>
+    <div class="process-step reveal"><div class="step-num">02</div><div class="step-content"><div class="step-title">Strategy</div><p class="step-desc">Research becomes a clear creative brief. We define positioning, tone, and visual direction.</p></div><span class="step-tag">Week 2</span></div>
+    <div class="process-step reveal"><div class="step-num">03</div><div class="step-content"><div class="step-title">Concept</div><p class="step-desc">Initial design directions are developed, explored, and pressure-tested.</p></div><span class="step-tag">Week 3–4</span></div>
+    <div class="process-step reveal"><div class="step-num">04</div><div class="step-content"><div class="step-title">Refinement</div><p class="step-desc">Chosen direction is refined through focused feedback rounds. Every detail is considered.</p></div><span class="step-tag">Week 5</span></div>
+    <div class="process-step reveal"><div class="step-num">05</div><div class="step-content"><div class="step-title">Delivery</div><p class="step-desc">Final files, documentation, and handoff. Everything organized and ready to use.</p></div><span class="step-tag">Week 6</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">PSY<span>MEK</span></div>
+  <ul class="footer-links">
+    <li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2024 PSYMEK Studio. All rights reserved.</div>
+</footer>
+
+<script>
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){const dot=document.getElementById('cursor-dot');const ring=document.getElementById('cursor-ring');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));});}
+const ham=document.querySelector('.nav-hamburger');const nav=document.querySelector('.nav-links');ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
