@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — PSYMEK Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="index.html" class="nav-logo">PSY<span>MEK</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</nav>
+<div class="page-header">
+  <div class="page-header-label">What We Do</div>
+  <h1 class="page-header-title">Services</h1>
+</div>
+<section style="padding-top:64px;">
+  <div class="services-grid">
+    <div class="service-card reveal"><div class="service-icon">B</div><div class="service-title">Brand Identity</div><p class="service-desc">Logo systems, visual language, typography, color, and brand guidelines that make your identity recognizable and durable.</p></div>
+    <div class="service-card reveal"><div class="service-icon">W</div><div class="service-title">Web Design</div><p class="service-desc">Custom websites and digital experiences designed for conversion, aesthetics, and performance. From concept to code.</p></div>
+    <div class="service-card reveal"><div class="service-icon">C</div><div class="service-title">Creative Direction</div><p class="service-desc">Art direction, campaign concepting, and visual strategy for brands that want cohesive, powerful storytelling.</p></div>
+    <div class="service-card reveal"><div class="service-icon">M</div><div class="service-title">Motion & Video</div><p class="service-desc">Animated brand assets, social content, and motion graphics that bring your brand to life in the digital feed.</p></div>
+    <div class="service-card reveal"><div class="service-icon">P</div><div class="service-title">Print & Packaging</div><p class="service-desc">Tactile brand touchpoints — packaging design, print collateral, and physical materials that reinforce your brand world.</p></div>
+    <div class="service-card reveal"><div class="service-icon">S</div><div class="service-title">Strategy & Naming</div><p class="service-desc">Brand positioning, naming, messaging frameworks, and the strategic foundations that make design work harder.</p></div>
+  </div>
+</section>
+<section style="text-align:center;padding:100px 40px;">
+  <div class="reveal">
+    <div class="section-label" style="justify-content:center;margin-bottom:24px;">Ready to Start</div>
+    <h2 class="section-title" style="margin-bottom:40px;">Let's Work</h2>
+    <a href="contact.html" style="display:inline-block;background:var(--accent);color:var(--black);font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;padding:18px 48px;text-decoration:none;">Start a Project →</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">PSY<span>MEK</span></div>
+  <ul class="footer-links"><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <div class="footer-copy">&copy; 2024 PSYMEK Studio. All rights reserved.</div>
+</footer>
+<script>
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){const dot=document.getElementById('cursor-dot');const ring=document.getElementById('cursor-ring');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button,.service-card').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));});}
+const ham=document.querySelector('.nav-hamburger');const nav=document.querySelector('.nav-links');ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
