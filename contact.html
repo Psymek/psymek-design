@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — PSYMEK Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="index.html" class="nav-logo">PSY<span>MEK</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</nav>
+<div class="page-header">
+  <div class="page-header-label">Get In Touch</div>
+  <h1 class="page-header-title">Let's Work</h1>
+</div>
+<section style="padding-top:64px;">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <p class="contact-desc">Have a project in mind? Tell us what you're working on and we'll get back to you within 24–48 hours.</p>
+      <div class="contact-detail">
+        <div class="contact-row"><span class="contact-row-label">Email</span><span class="contact-row-val">hello@psymek.design</span></div>
+        <div class="contact-row"><span class="contact-row-label">Availability</span><span class="contact-row-val">Open to Projects</span></div>
+        <div class="contact-row"><span class="contact-row-label">Response</span><span class="contact-row-val">24–48 Hours</span></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" name="name" placeholder="Full name" required></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group"><label class="form-label">Project Type</label><input class="form-input" type="text" name="project_type" placeholder="Brand identity, web design, etc."></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your project..." required></textarea></div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-logo">PSY<span>MEK</span></div>
+  <ul class="footer-links"><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <div class="footer-copy">&copy; 2024 PSYMEK Studio. All rights reserved.</div>
+</footer>
+<script>
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){const dot=document.getElementById('cursor-dot');const ring=document.getElementById('cursor-ring');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));});}
+const ham=document.querySelector('.nav-hamburger');const nav=document.querySelector('.nav-links');ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
