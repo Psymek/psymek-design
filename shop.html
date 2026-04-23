@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — PSYMEK Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="index.html" class="nav-logo">PSY<span>MEK</span></a>
+  <ul class="nav-links">
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="contact.html" class="nav-cta">Start a Project</a>
+</nav>
+<div class="page-header">
+  <div class="page-header-label">The Shop</div>
+  <h1 class="page-header-title">Merch</h1>
+</div>
+<section style="padding-top:64px;">
+  <!-- SHOPIFY SETUP: See comments below each product card for instructions -->
+  <div class="shop-setup-notice reveal">
+    <div class="shop-setup-accent">S</div>
+    <div>
+      <div class="shop-setup-title">Connect Your Shopify Store</div>
+      <p class="shop-setup-text">Sign up for a <a href="https://www.shopify.com/starter" target="_blank">Shopify Starter plan</a> ($5/month), add your products, then paste your Buy Button embed codes into the product cards below.</p>
+      <div class="shop-setup-steps">
+        <div class="shop-setup-step"><span class="shop-setup-step-num">01 —</span> Sign up at shopify.com/starter</div>
+        <div class="shop-setup-step"><span class="shop-setup-step-num">02 —</span> Add products: name, photos, price, description</div>
+        <div class="shop-setup-step"><span class="shop-setup-step-num">03 —</span> Go to Sales Channels → Buy Button → Create buy button</div>
+        <div class="shop-setup-step"><span class="shop-setup-step-num">04 —</span> Copy the embed code for each product</div>
+        <div class="shop-setup-step"><span class="shop-setup-step-num">05 —</span> Paste into the product-buy-area div below</div>
+      </div>
+    </div>
+  </div>
+  <div class="shop-grid">
+    <div class="product-card reveal">
+      <div class="product-image">Product Photo</div>
+      <div class="product-name">PSYMEK Tee</div>
+      <div class="product-price">$35.00</div>
+      <div class="product-buy-area">
+        <!-- PASTE SHOPIFY BUY BUTTON EMBED CODE HERE -->
+        <a href="https://shopify.com" target="_blank" style="display:block;width:100%;background:var(--accent);color:var(--black);padding:14px 20px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;text-align:center;text-decoration:none;">Add to Cart</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-image">Product Photo</div>
+      <div class="product-name">Studio Print</div>
+      <div class="product-price">$45.00</div>
+      <div class="product-buy-area">
+        <!-- PASTE SHOPIFY BUY BUTTON EMBED CODE HERE -->
+        <a href="https://shopify.com" target="_blank" style="display:block;width:100%;background:var(--accent);color:var(--black);padding:14px 20px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;text-align:center;text-decoration:none;">Add to Cart</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-image">Product Photo</div>
+      <div class="product-name">PSYMEK Cap</div>
+      <div class="product-price">$30.00</div>
+      <div class="product-buy-area">
+        <!-- PASTE SHOPIFY BUY BUTTON EMBED CODE HERE -->
+        <a href="https://shopify.com" target="_blank" style="display:block;width:100%;background:var(--accent);color:var(--black);padding:14px 20px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;text-align:center;text-decoration:none;">Add to Cart</a>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-image">Product Photo</div>
+      <div class="product-name">Brand Zine</div>
+      <div class="product-price">$20.00</div>
+      <div class="product-buy-area">
+        <!-- PASTE SHOPIFY BUY BUTTON EMBED CODE HERE -->
+        <a href="https://shopify.com" target="_blank" style="display:block;width:100%;background:var(--accent);color:var(--black);padding:14px 20px;font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;text-align:center;text-decoration:none;">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  <!-- PASTE SHOPIFY SDK SCRIPT HERE (once, after products) -->
+</section>
+<footer>
+  <div class="footer-logo">PSY<span>MEK</span></div>
+  <ul class="footer-links"><li><a href="work.html">Work</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li></ul>
+  <div class="footer-copy">&copy; 2024 PSYMEK Studio. All rights reserved.</div>
+</footer>
+<script>
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){const dot=document.getElementById('cursor-dot');const ring=document.getElementById('cursor-ring');let mx=0,my=0,rx=0,ry=0;document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing);}animateRing();document.querySelectorAll('a,button,.product-card').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));});}
+const ham=document.querySelector('.nav-hamburger');const nav=document.querySelector('.nav-links');ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
